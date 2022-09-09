@@ -2,13 +2,10 @@
 
 /**
  *
- *  * main -Prints  \"Programming is like building a multilingual puzzle
- *
- *   *
- *
- *    * Return: my text or 0
- *
- *     */
+ * main -Prints  \"Programming is like building a multilingual puzzle
+ *   
+ *  Return: my text or 0   
+ */
 
 
 
