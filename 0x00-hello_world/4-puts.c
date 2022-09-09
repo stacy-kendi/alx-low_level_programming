@@ -1,6 +1,6 @@
 #include<stdio.h>
 /*
- * main - print a text and the program to
+ * main-print a text 
  * Return: return a value of 0
  */
 int main(void)
