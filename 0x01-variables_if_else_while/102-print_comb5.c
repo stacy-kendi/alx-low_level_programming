@@ -3,6 +3,7 @@
  * main - Prints all possible combinations of a pair of
  * two digit numbers separated with space
  * with no repetition
+ * Return: 0
  */
 
 int main(void)
