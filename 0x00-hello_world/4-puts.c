@@ -1,20 +1,8 @@
-#include <stdio.h>
-
-/**
- *
- * main -Prints  \"Programming is like building a multilingual puzzle
- *   
- *  Return: my text or 0   
+#include<stdio.h>
+/*print a text and the program to return a value of 0
  */
-
-
-
-int main(void)
-
+int main (void)
 {
-	char Mytext[] = "\"Programming is like building a multilingual puzzle";
-	
-	puts(Mytext);
-
+	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
