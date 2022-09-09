@@ -1,6 +1,5 @@
 #include <stdio.h>
 /**
- *
  * main -Print text
  * Return: Always 0
  */
