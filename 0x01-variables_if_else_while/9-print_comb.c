@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - prints all possible combinations of single digit numbers separated by a comma
+ * main - prints all possible combinations of single digit numbers
  * Return: 0
  */
 
