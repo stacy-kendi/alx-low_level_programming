@@ -8,8 +8,7 @@
 
 int _strlen(char *s)
 {
-	int i = 1;
-	sum = 0;
+	int i = 1, sum = 0;
 	char point = s[0];
 
 	while (point != '\0')
