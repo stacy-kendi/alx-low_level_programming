@@ -30,7 +30,7 @@ int squared(int c, int i)
 	}
 	else if (square < c)
 	{
-		return (halp(c, i + 1));
+		return (squared(c, i + 1));
 	}
 	else
 	{
