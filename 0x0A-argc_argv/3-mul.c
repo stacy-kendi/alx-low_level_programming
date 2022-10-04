@@ -7,6 +7,8 @@
  * print the result of the multiplication, followed by a new line
  * assume that the two numbers and result can be stored as integer
  * program does not receive two arguments print error
+ * @argc: argument count
+ * @argv: argument vector, array of strings
  * Return: 1 as error
  */
 
