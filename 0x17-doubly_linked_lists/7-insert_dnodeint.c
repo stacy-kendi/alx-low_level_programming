@@ -2,53 +2,59 @@
 
 /**
  * Need to know how to first insert node at the begining and end of a list
- * insert_dnodeint_at_idx - insert a new node at given position
- * @h: double pointer to head
- * @idx: index to insert into
- * @n: value to store in new node
- * Return: Address of new node, or NULL if failed
+ * insert_node - insert node at given index
+ * @tmp: ptr to nth position node in doubly linked list
+ * @n: node data
+ * Return: address of inserted node
  */
 
-dlistint_t *insert_dnodeint_at_idx(dlistint_t **h, unsigned int idx, int n)
+dlistint_t *insert_node(dlistint_t *tmp, int n)
 {
-	unsigned int c;
-	dlistint_t *tmp, *prev, *new;
+	dlistint_t *new;
 
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+	new = malloc(sizeof(struct dlistint_s));
+	if (!new)
 		return (NULL);
 	new->n = n;
-	for (tmp = *h, c = 1; tmp && c < idx; c++, tmp = tmp->next)
-		prev = tmp;
-	if (idx == 0)
-	{
-		*h = new; new->prev = NULL;
-		new->next = (tmp == NULL) ? NULL : tmp;
-		return (new);
-	}
-	if (idx == 1)
-	{
-		prev = *h;
-		tmp = ((*h)->next == NULL) ? NULL : (*h)->next;
-		new->prev = prev; new->next = tmp; prev->next = new;
-		if (tmp)
-			tmp->prev = new;
-		return (new);
-	}
-	if (idx == c && tmp == NULL)
-	{
-		if (prev != NULL)
-		{
-			new->prev = prev; new->next = NULL;
-			prev->next = new; return (new);
-		}
-		free(new); return (NULL);
-	}
-	else if (idx != c && tmp == NULL)
-	{
-		free(new); return (NULL);
-	}
-	prev = tmp; tmp = tmp->next; new->prev = prev;
-	new->next = tmp; prev->next = new; tmp->prev = new;
+
+	new->next = tmp;
+	new->prev = tmp->prev;
+	tmp->prev->next = new;
+	tmp->prev = new;
+
 	return (new);
+}
+
+/**
+ * insert_dnodeint_at_index - create and insert node at nth index
+ * @h: pointer to head of list
+ * @idx: index
+ * @n: node data
+ * Return: address of inserted node, or NULL if failed
+ */
+
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+{
+	dlistint_t *tmp;
+
+	/* insert at beginning if empty or existing linked list */
+	if (idx == 0)
+		return (add_dnodeint(h, n));
+	if (!h)
+		return (NULL);
+
+	/* insert in the middle of list */
+	tmp = *h;
+	while ((idx != 0) && (tmp->next))
+	{
+		idx -= 1;
+		tmp = tmp->next;
+		if (idx == 0)
+			return (insert_node(tmp, n));
+	}
+
+	/* insert at the end of list if idx is one after last node */
+	if (idx == 1)
+		return (add_dnodeint_end(h, n));
+	return (NULL);
 }
